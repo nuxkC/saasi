@@ -15,7 +15,7 @@ data class LoginState(
     val password: String = "",
     val isLoading: Boolean = false,
     val error: String? = null,
-    val loggedInUser: User? = null
+    val loginSuccess: Boolean = false
 )
 
 class LoginViewModel(private val loginUseCase: LoginUseCase) : ViewModel() {
@@ -39,7 +39,7 @@ class LoginViewModel(private val loginUseCase: LoginUseCase) : ViewModel() {
                     _state.update {
                         it.copy(
                             isLoading = false,
-                            loggedInUser = result.data
+                            loginSuccess = true
                         )
                     }
                 }
