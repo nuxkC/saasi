@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Saas">
+        android:theme="@style/Theme.Saas"
+        android:name=".SaasApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true"
