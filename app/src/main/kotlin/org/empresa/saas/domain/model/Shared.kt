@@ -1,0 +1,39 @@
+// domain/model/Shared.kt
+package org.empresa.saas.domain.model
+
+import kotlinx.datetime.Instant
+
+// Branded IDs para type safety
+typealias UserId = String
+typealias CompanyId = String
+typealias LocationId = String
+typealias MachineId = String
+typealias BreakdownId = String
+typealias LicenseId = String
+typealias InstallationId = String
+typealias CollectionId = String
+typealias AuditLogId = String
+typealias LoanId = String
+
+// Enums basados en firestoreConstants.ts
+enum class UserRole { ADMIN, TECHNICIAN, VIEWER, MANAGER, PENDING }
+enum class UserStatus { ACTIVE, INACTIVE, PENDING }
+enum class LocationStatus { ACTIVE, INACTIVE }
+enum class MachineStatus { STORED, INSTALLED, NEED_REPAIR, RETIRED }
+enum class LicenseStatus { ASSIGNED, AVAILABLE, INACTIVE, EXPIRED }
+enum class InstallationStatus { ACTIVE, REMOVED }
+enum class LoanStatus { ACTIVE, PAID, CANCELLED }
+enum class BreakdownStatus { REPORTED, ASSIGNED, IN_PROGRESS, RESOLVED, CLOSED, CANNOT_REPRODUCE }
+enum class BreakdownPriority { HIGH, MEDIUM, LOW }
+enum class CollectionStatus { COMPLETED, REVERSED }
+enum class AuditEventType {
+    USER_ACCESS_GRANTED, USER_ACCESS_REVOKED, USER_CREATED, USER_DELETED, USER_STATUS_UPDATED, USER_ROLE_UPDATED,
+    COMPANY_CREATED, LOCATION_CREATED, LOCATION_UPDATED, LOCATION_STATUS_UPDATED, MACHINE_CREATED, MACHINE_UPDATED,
+    MACHINE_RETIRED, MACHINE_STATUS_UPDATED, MACHINE_COUNTERS_UPDATED, MACHINE_COLLECTION_LOCK_ACQUIRED,
+    MACHINE_COLLECTION_LOCK_RELEASED, BREAKDOWN_REPORTED, BREAKDOWN_STATUS_UPDATED, BREAKDOWN_RESOLVED,
+    LICENSE_CREATED, LICENSE_UPDATED, LICENSE_STATUS_UPDATED, INSTALLATION_CREATED, INSTALLATION_REMOVED,
+    COLLECTION_CREATED, COLLECTION_REVERSED, HOPPER_DEBT_ADJUSTED, HOPPER_DEBT_REVERSED, LOAN_CREATED,
+    LOAN_UPDATED, LOAN_CANCELLED, LOAN_PAYMENT_APPLIED, LOAN_STATUS_UPDATED, LOAN_PAYMENT_REVERSED,
+    SYSTEM_MAINTENANCE
+}
+enum class AuditEntity { USER, COMPANY, LOCATION, MACHINE, BREAKDOWN, LICENSE, INSTALLATION, COLLECTION, LOAN, SYSTEM, NONE }
